@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.Threading;
 
 namespace ddmrp
 {
@@ -15,68 +17,102 @@ namespace ddmrp
         }
 
         [Test]
-        public void ValidateHomePage()
+        public void SuccessGotoHomePage()
         {
+            //Arrange
+
+            //Act
             GotoHomePage();
+
+            //Assert
         }
 
 
         [Test]
-        public void ValidateSearchForDdmrp()
+        public void SuccessSearchForDdmrp()
         {
-            driver.Url = "http://www.microsoft.com";
-
+            //Arrange
             string searchTerm = "Demand Driven Material Requirement Planning";
+            GotoHomePage();
+
+            //Act
             driver.FindElement(By.Id("search")).Click();
             driver.FindElement(By.Id("cli_shellHeaderSearchInput")).SendKeys(searchTerm);
             driver.FindElement(By.Id("search")).Click();
+
+            //Assert
         }
 
         [Test]
-        public void ValidateSignInPage()
+        public void SuccessGotoSignInPage()
         {
-            driver.Url = "http://www.microsoft.com";
-            driver.FindElement(By.ClassName("msame_Header_name")).Click();
+            //Arrange 
 
+            //Act
+            GotoSigninPage();
+
+            //Assert
         }
 
         [Test]
-        public void ValidateSignInWithValidUsernamePasswordSuccessful()
+        public void SuccessSignInWithValidUsernamePassword()
         {
-            driver.Url = "http://www.microsoft.com";
-            driver.FindElement(By.ClassName("msame_Header_name")).Click();
-
+            //Arrange
             string username = "ddmrp222@outlook.com";
             string password = "DemandDriven1!";
+
+            //Act
             SignIn(username, password);
+
+            //Assert
+            Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
+
         }
 
-        [Test]
-        public void ValidateSignInWithInvalidUsernameFailed()
+        [Test]   
+        public void FailedSignInWithInvalidUsername()
         {
-            driver.Url = "http://www.microsoft.com";
-            driver.FindElement(By.ClassName("msame_Header_name")).Click();
-
+            //Arrange
+            int numberOfExceptions = 0;
             string username = "ddmrp999@outlook.com";
             string password = "DemandDriven1!";
-            SignIn(username, password);
+
+            //Act
+            try
+            {
+                SignIn(username, password);
+            }
+            catch (AssertionException) { numberOfExceptions++; }
+
+            //Assert
+            Assert.AreEqual(1, numberOfExceptions);
         }
-
+        
         [Test]
-        public void ValidateSignInWithInvalidPasswordFailed()
+     
+        public void FailedSignInWithInvalidPassword()
         {
-            driver.Url = "http://www.microsoft.com";
-            driver.FindElement(By.ClassName("msame_Header_name")).Click();
-
+            //Arrange
+            int numberOfExceptions = 0;
             string username = "ddmrp222@outlook.com";
-            string password = "DemandDriven9!";
-            SignIn(username, password);
+            string password = "DemandDriven2!";
+
+            //Act
+            try
+            {
+                SignIn(username, password);
+            }
+            catch (AssertionException) { numberOfExceptions++; }
+
+            //Assert
+            Assert.AreEqual(1, numberOfExceptions);
         }
 
         [TearDown]
             public void CloseBrowser()
             {
-                driver.Close();
+            Thread.Sleep(5000);
+            driver.Close();
             }
 
         #region Helpers
@@ -94,22 +130,37 @@ namespace ddmrp
         public void SignIn(string username, string password)
         {
             GotoSigninPage();
-
+            //Type in UserName
             driver.FindElement(By.Id("i0116")).SendKeys(username);
+            Thread.Sleep(1000);
+
+            //Click Next
             driver.FindElement(By.Id("idSIButton9")).Click();
+            Thread.Sleep(1000);
 
-            Assert.IsFalse(driver.FindElement(By.Id("usernameError")).Displayed);
+            try
+            {   //UserName error
+                var usernameError = driver.FindElement(By.Id("usernameError"));
+                Assert.IsNull(usernameError); //make sure no username error
+            }
+            catch (NoSuchElementException)
+            {   //Type in Password
+                driver.FindElement(By.XPath("//input[@type='password']")).SendKeys(password);
+                Thread.Sleep(1000);
+                //Click on Sign in button
+                driver.FindElement(By.Id("idSIButton9")).Click();
+                Thread.Sleep(1000);
 
-            //StringAssert.AreEqualIgnoringCase(username, driver.FindElement(By.Id("displayName")).Text);
-            //StringAssert.AreEqualIgnoringCase("Enter password", driver.FindElement(By.Id("loginHeader")).Text);
-            //           driver.FindElement(By.Id("i0118")).SendKeys(password);
-            driver.FindElement(By.XPath("//input[@type='password']")).SendKeys(password);
-            driver.SwitchTo().ActiveElement().SendKeys("Keys.Tab");
-            driver.SwitchTo().ActiveElement().SendKeys("Keys.Tab");
-            driver.SwitchTo().ActiveElement().SendKeys("Keys.Space");
-
-            Assert.IsFalse(driver.FindElement(By.Id("passwordError")).Displayed);
-
+                try
+                {   //Password error
+                    var passwordError = driver.FindElement(By.Id("passwordError"));
+                    Assert.IsNull(passwordError); //make sure no password error
+                }
+                catch (NoSuchElementException)
+                {   //Logged in, make sure the user profile picture element presents
+                    Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
+                }
+            }
         }
 
         public void SearchFor(string searchTerm)

@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BottomFooter.feature</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Pages\Homepage.cs" />
     <Compile Include="microsoftdotcom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,14 +83,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Automation\AccountProfile\" />
-    <Folder Include="Automation\Authentication\" />
-    <Folder Include="Automation\BottomFooter\" />
-    <Folder Include="Automation\ShoppingCart\" />
-    <Folder Include="Automation\TopNavigation\" />
     <Folder Include="Framework\Controls\" />
     <Folder Include="Framework\Helpers\" />
-    <Folder Include="Framework\Pages\" />
+    <Folder Include="tests\AccountProfile\" />
+    <Folder Include="tests\Authentication\" />
+    <Folder Include="tests\BottomFooter\" />
+    <Folder Include="tests\ShoppingCart\" />
+    <Folder Include="tests\TopNavigation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

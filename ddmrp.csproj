@@ -72,6 +72,13 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Automation\" />
+    <Folder Include="FeatureFiles\" />
+    <Folder Include="Framework\Controls\" />
+    <Folder Include="Framework\Helpers\" />
+    <Folder Include="Framework\Pages\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

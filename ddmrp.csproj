@@ -64,17 +64,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureFiles\BottomFooter.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BottomFooter.feature</DependentUpon>
+    </Compile>
     <Compile Include="microsoftdotcom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="FeatureFiles\BottomFooter.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BottomFooter.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Automation\" />
-    <Folder Include="FeatureFiles\" />
+    <Folder Include="Automation\AccountProfile\" />
+    <Folder Include="Automation\Authentication\" />
+    <Folder Include="Automation\BottomFooter\" />
+    <Folder Include="Automation\ShoppingCart\" />
+    <Folder Include="Automation\TopNavigation\" />
     <Folder Include="Framework\Controls\" />
     <Folder Include="Framework\Helpers\" />
     <Folder Include="Framework\Pages\" />

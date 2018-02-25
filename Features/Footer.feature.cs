@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ddmrp.FeatureFiles
+namespace ddmrp.Features
 {
     using TechTalk.SpecFlow;
     
@@ -24,7 +24,7 @@ namespace ddmrp.FeatureFiles
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "BottomFooter.feature"
+#line 1 "Footer.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

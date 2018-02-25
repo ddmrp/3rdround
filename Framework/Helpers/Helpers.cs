@@ -6,9 +6,9 @@ namespace Ddmrp.Framework.Helpers
 {
     public static class Utils
     {
-        public static void ClickLink(IWebDriver driver, string link)
+        public static void ClickLink(IWebDriver driver, By by)
         {
-            driver.FindElement(By.Id(link)).Click();
+            driver.FindElement(by).Click();
         }
     }
 }

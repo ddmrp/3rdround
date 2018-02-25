@@ -12,8 +12,8 @@ namespace Ddmrp.Framework.Pages
     public class BasePage
     {
 
-        string url = "https://www.microsoft.com";
-        IWebDriver driver;
+        public string url = "https://www.microsoft.com";
+        public IWebDriver driver;
 
         public void StartBrowser()
         {
@@ -30,5 +30,5 @@ namespace Ddmrp.Framework.Pages
             driver.FindElement(By.Id("uhfLogo")).Click();
         }
 
-    }
+      }
 }

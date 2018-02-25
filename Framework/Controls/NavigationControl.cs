@@ -1,32 +1,45 @@
-﻿//HomePageObject.cs
-using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿//NavigationControl.cs
+using Ddmrp.Framework.Enums;
+using Ddmrp.Framework.Helpers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Chrome;
 
 namespace Ddmrp.Framework.Controls
 {
-    public class NavigationControl:BaseControl
+    public static class NavigationControl
     {
-        public void OpenPage(string homepage, IWebDriver driver)
+        public static void ClickOffice(IWebDriver driver)
         {
-            //driver.Navigate().GoToUrl("http://google.co.uk");
-            driver.Navigate().GoToUrl(homepage);
-            //Console.WriteLine(homepage);
-            // driver.Navigate();
+            Utils.ClickLink(driver, Navigation.Office);
         }
-         public void ClickSearch(IWebDriver driver)
+
+        public static void ClickWindows(IWebDriver driver)
         {
-            //Selenese goes here
-            driver.FindElement(By.Id("gbqfba")).Click();
+            Utils.ClickLink(driver, Navigation.Windows);
         }
-        public void clickFeelingLucky(IWebDriver driver)
+
+        public static void ClickSurface(IWebDriver driver)
         {
-            //Selenese
-            driver.FindElement(By.Id("gbqfbb")).Click();
+            Utils.ClickLink(driver, Navigation.Surface);
+        }
+
+        public static void ClickXbox(IWebDriver driver)
+        {
+            Utils.ClickLink(driver, Navigation.Xbox);
+        }
+
+        public static void ClickDeals(IWebDriver driver)
+        {
+            Utils.ClickLink(driver, Navigation.Deals);
+        }
+
+        public static void ClickSupport(IWebDriver driver)
+        {
+            Utils.ClickLink(driver, Navigation.Support);
+        }
+
+        public static void ClickMore(IWebDriver driver)
+        {
+            Utils.ClickLink(driver, Navigation.More);
         }
     }
 }

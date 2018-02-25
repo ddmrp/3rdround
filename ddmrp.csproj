@@ -99,6 +99,7 @@
     <Compile Include="Framework\Controls\FooterControl.cs" />
     <Compile Include="Framework\Controls\BaseControl.cs" />
     <Compile Include="Framework\Helpers\Helpers.cs" />
+    <Compile Include="Framework\Enums\NavigationLinksEnum.cs" />
     <Compile Include="Framework\Pages\BasePage.cs" />
     <Compile Include="Framework\Pages\HomePage.cs" />
     <Compile Include="tests\Cart\cart.cs" />

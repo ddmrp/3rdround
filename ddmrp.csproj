@@ -64,32 +64,78 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureFiles\BottomFooter.feature.cs">
+    <Compile Include="Features\Cart.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BottomFooter.feature</DependentUpon>
+      <DependentUpon>Cart.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Footer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Footer.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Profile.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Search.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Search.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Navigation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Navigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Signin.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Signin.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\StepDefinition.cs" />
     <Compile Include="Framework\Pages\Homepage.cs" />
-    <Compile Include="microsoftdotcom.cs" />
+    <Compile Include="tests\Cart\cart.cs" />
+    <Compile Include="tests\Footer\footer.cs" />
+    <Compile Include="tests\Navigation\navigation.cs" />
+    <Compile Include="tests\Profile\profile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tests\Search\search.cs" />
+    <Compile Include="tests\Signin\signin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="FeatureFiles\BottomFooter.feature">
+    <None Include="Features\Cart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>BottomFooter.feature.cs</LastGenOutput>
+      <LastGenOutput>Cart.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Footer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Footer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Profile.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Profile.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Search.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Search.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Navigation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Navigation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Signin.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Signin.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\Controls\" />
     <Folder Include="Framework\Helpers\" />
-    <Folder Include="tests\AccountProfile\" />
-    <Folder Include="tests\Authentication\" />
-    <Folder Include="tests\BottomFooter\" />
-    <Folder Include="tests\ShoppingCart\" />
-    <Folder Include="tests\TopNavigation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

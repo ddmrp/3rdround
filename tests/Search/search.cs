@@ -4,9 +4,9 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.Threading;
 
-namespace ddmrp
+namespace ddmrp.Tests
 {
-    class MicrosoftDotCom
+    class Search
     {
         IWebDriver driver;
 
@@ -32,13 +32,76 @@ namespace ddmrp
         public void SuccessSearchForDdmrp()
         {
             //Arrange
-            string searchTerm = "Demand Driven Material Requirement Planning";
+            string searchTerm = "Demand Driven Material Requirement Plan";
+            GotoHomePage();
+ 
+            //Act
+            SearchFor(searchTerm);
+
+            //Assert
+        }
+
+        [Test]
+        public void SuccessSearchForTyNorton()
+        {
+            //Arrange
+            string searchTerm = "Ty Norton";
             GotoHomePage();
 
             //Act
-            driver.FindElement(By.Id("search")).Click();
-            driver.FindElement(By.Id("cli_shellHeaderSearchInput")).SendKeys(searchTerm);
-            driver.FindElement(By.Id("search")).Click();
+            SearchFor(searchTerm);
+
+            //Assert
+        }
+
+        [Test]
+        public void SuccessSearchForEricFalsken()
+        {
+            //Arrange
+            string searchTerm = "Eric Falsken";
+            GotoHomePage();
+
+            //Act
+            SearchFor(searchTerm);
+
+            //Assert
+        }
+
+        [Test]
+        public void SuccessSearchForFrankZhang()
+        {
+            //Arrange
+            string searchTerm = "Frank Zhang";
+            GotoHomePage();
+
+            //Act
+            SearchFor(searchTerm);
+
+            //Assert
+        }
+
+        [Test]
+        public void SuccessSearchForMichaelDurkin()
+        {
+            //Arrange
+            string searchTerm = "Michael Durkin";
+            GotoHomePage();
+
+            //Act
+            SearchFor(searchTerm);
+
+            //Assert
+        }
+
+        [Test]
+        public void SuccessSearchForHermanXiao()
+        {
+            //Arrange
+            string searchTerm = "Herman Xiao";
+            GotoHomePage();
+
+            //Act
+            SearchFor(searchTerm);
 
             //Assert
         }
@@ -165,8 +228,12 @@ namespace ddmrp
 
         public void SearchFor(string searchTerm)
         {
+            //Click on Magnifier to expand searchbox
             driver.FindElement(By.Id("search")).Click();
+            //Type in search terms
             driver.FindElement(By.Id("cli_shellHeaderSearchInput")).SendKeys(searchTerm);
+            //Click on Magnifier to execute search
+            driver.FindElement(By.Id("search")).Click();
         }
 
         #endregion

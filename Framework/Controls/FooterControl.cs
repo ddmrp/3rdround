@@ -7,9 +7,9 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 
-namespace Ddmrp.Framework.Pages
+namespace Ddmrp.Framework.Controls
 {
-    public class Homepage: BasePage
+    public class FooterControl:BaseControl
     {
         public void OpenPage(string homepage, IWebDriver driver)
         {

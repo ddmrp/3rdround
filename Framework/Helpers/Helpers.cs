@@ -26,6 +26,17 @@ namespace Ddmrp.Framework.Helpers
 
         public static void SignIn(IWebDriver driver, string username, string password)
         {
+            //Check whether already signed in, sign out first true
+            if (ExistsElement(driver, By.XPath("//img[@role='presentation']")))
+            {   //Click on the picture to flyout menu
+                driver.FindElement(By.XPath("//img[@role='presentation']")).Click();
+                //Click on Sign Out link
+                driver.FindElement(By.XPath("//div[@id='msame_si1']/a")).Click();
+            }
+            Thread.Sleep(1000);
+            driver.FindElement(By.Id("meControl")).Click();
+            Thread.Sleep(1000);
+
             //Type in UserName
             driver.FindElement(By.Id("i0116")).SendKeys(username);
             Thread.Sleep(1000);
@@ -56,6 +67,19 @@ namespace Ddmrp.Framework.Helpers
                 {   //Logged in, make sure the user profile picture element presents
                     Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
                 }
+            }
+        }
+
+        public static bool ExistsElement(IWebDriver driver, By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
             }
         }
     }

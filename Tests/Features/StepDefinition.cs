@@ -30,12 +30,13 @@ namespace Ddmrp.FeatureFiles
         {
         }
         #endregion
+
         #region When
+        [When(@"I enter valid username (.*) / password (.*)")]
+        public void WhenIEnterValidUsernamePassword(string username, string password) => Utils.SignIn(driver, username, password);
+
         [When(@"I click on Show All results link")]
-        public void WhenIClickOnShowAllResultsLink()
-        {
-            Utils.ClickLink(driver, By.XPath("//a[starts-with(@href,'https://www.microsoft.com/en-us/store/search')]"));
-        }
+        public void WhenIClickOnShowAllResultsLink() => Utils.ClickLink(driver, By.XPath("//a[starts-with(@href,'https://www.microsoft.com/en-us/store/search')]"));
 
         [When(@"I search for terms (.*) in searchbox")]
         public void WhenISearchForTermsInSearchbox(string searchTerms)
@@ -46,7 +47,8 @@ namespace Ddmrp.FeatureFiles
         #endregion
 
         #region Then
-
+        [Then("Then I should be able to sign in the site")]
+        public void ThenIShouldBeAbleToSignInTheSite() => Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
 
         [Then("all result items relevant to search terms (.*) should appear")]
         public void ThenAllResultItemsRelevantToSearchTermsShouldAppear(string searchTerms)

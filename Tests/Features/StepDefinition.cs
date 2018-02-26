@@ -19,21 +19,21 @@ namespace Ddmrp.FeatureFiles
         #endregion
 
         #region Given
-        [Given("I am on the Signin page")]
+        [Given(@"I am on the Signin page")]
         public void GivenIAmOnTheSigninPage() => driver.FindElement(By.XPath("//div[contains(., 'Sign in')]"));
 
-        [Given("I am on SearchResults page for terms (.*)")]
+        [Given(@"I am on SearchResults page for terms (.*)")]
         public void GivenIAmOnSearchResultsPageForTerms(string searchTerms) => Utils.SearchFor(driver, searchTerms);
 
-        [Given("I am on HomePage")]
+        [Given(@"I am on HomePage")]
         public void GivenIAmOnHomePage()
         {
         }
         #endregion
 
         #region When
-        [When(@"I enter valid username (.*) / password (.*)")]
-        public void WhenIEnterValidUsernamePassword(string username, string password) => Utils.SignIn(driver, username, password);
+        [When(@"I enter username (.*) / password (.*)")]
+        public void WhenIEnterUsernamePassword(string username, string password) => Utils.SignIn(driver, username, password);
 
         [When(@"I click on Show All results link")]
         public void WhenIClickOnShowAllResultsLink() => Utils.ClickLink(driver, By.XPath("//a[starts-with(@href,'https://www.microsoft.com/en-us/store/search')]"));
@@ -47,17 +47,28 @@ namespace Ddmrp.FeatureFiles
         #endregion
 
         #region Then
-        [Then("Then I should be able to sign in the site")]
-        public void ThenIShouldBeAbleToSignInTheSite() => Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
+        [Then(@"I should be denied access to the site")]
+        public void ThenIShouldBeDeniedAccessToTheSite()
+        {
+            Assert.True(driver.Url.StartsWith("https://login.live.com/"));
+            Assert.True(Utils.ExistsElement(driver, By.Id("usernameError")) || Utils.ExistsElement(driver, By.Id("passwordError")));
+        }
 
-        [Then("all result items relevant to search terms (.*) should appear")]
+        [Then(@"I should be able to access the site")]
+        public void ThenIShouldBeAbleToAccessTheSite()
+        {
+            Assert.False(driver.Url.StartsWith("https://login.live.com/login.srf?"));
+            Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
+        }
+
+        [Then(@"all result items relevant to search terms (.*) should appear")]
         public void ThenAllResultItemsRelevantToSearchTermsShouldAppear(string searchTerms)
         {
             Assert.True(driver.Url.ToLowerInvariant().Contains("/store/search/"));
             Assert.IsNotNull(driver.FindElement(By.Id("typeRefineMenu")));
         }
 
-        [Then("result items relevant to search terms (.*) should appear")]
+        [Then(@"result items relevant to search terms (.*) should appear")]
         public void ThenResultItemsRelevantToSearchTermsShouldAppear(string searchTerms)
         {
             Assert.True(driver.Url.ToLowerInvariant().Contains("result.aspx"));
@@ -70,30 +81,33 @@ namespace Ddmrp.FeatureFiles
         [BeforeScenario()]
         public void BeforeScenario(FeatureContext featureContext)
         {
-            driver = (IWebDriver)featureContext["driver"];
+            //driver = (IWebDriver)featureContext["driver"];
+            driver = new ChromeDriver(@"c:\\3rdPartyTools");
+            driver.Navigate().GoToUrl("https://www.microsoft.com");
         }
 
         [AfterScenario()]
         public void AfterScenario()
         {
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
+            driver.Close();
         }
 
         [BeforeFeature()]
         public static void BeforeFeature(FeatureContext featureContext)
         {
-            var driver = new ChromeDriver(@"c:\\3rdPartyTools");
-            driver.Navigate().GoToUrl("https://www.microsoft.com");
-            featureContext.Add("driver", driver);
+          // var driver = new ChromeDriver(@"c:\\3rdPartyTools");
+          //  driver.Navigate().GoToUrl("https://www.microsoft.com");
+          //  featureContext.Add("driver", driver);
         }
 
         [AfterFeature()]
         public static void AfterFeature(FeatureContext featureContext)
         {
-            IWebDriver driver = (IWebDriver)featureContext["driver"];
+           // IWebDriver driver = (IWebDriver)featureContext["driver"];
 
-            Thread.Sleep(10000);
-            driver.Close();
+           // Thread.Sleep(3000);
+           // driver.Close();
         }
         #endregion
     }

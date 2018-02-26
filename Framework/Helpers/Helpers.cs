@@ -26,14 +26,11 @@ namespace Ddmrp.Framework.Helpers
 
         public static void SignIn(IWebDriver driver, string username, string password)
         {
-            //Check whether already signed in, sign out first true
-            if (ExistsElement(driver, By.XPath("//img[@role='presentation']")))
-            {   //Click on the picture to flyout menu
-                driver.FindElement(By.XPath("//img[@role='presentation']")).Click();
-                //Click on Sign Out link
-                driver.FindElement(By.XPath("//div[@id='msame_si1']/a")).Click();
-            }
+            //make sure we are signed out
+            SignOut(driver);
             Thread.Sleep(1000);
+
+            //Click on the SignIn link
             driver.FindElement(By.Id("meControl")).Click();
             Thread.Sleep(1000);
 
@@ -45,29 +42,33 @@ namespace Ddmrp.Framework.Helpers
             driver.FindElement(By.Id("idSIButton9")).Click();
             Thread.Sleep(1000);
 
-            try
-            {   //UserName error
-                var usernameError = driver.FindElement(By.Id("usernameError"));
-                Assert.IsNull(usernameError); //make sure no username error
-            }
-            catch (NoSuchElementException)
-            {   //Type in Password
+
+            if (!(ExistsElement(driver, By.Id("usernameError"))))
+            { //no usernameError
                 driver.FindElement(By.XPath("//input[@type='password']")).SendKeys(password);
                 Thread.Sleep(1000);
                 //Click on Sign in button
                 driver.FindElement(By.Id("idSIButton9")).Click();
                 Thread.Sleep(1000);
 
-                try
-                {   //Password error
-                    var passwordError = driver.FindElement(By.Id("passwordError"));
-                    Assert.IsNull(passwordError); //make sure no password error
-                }
-                catch (NoSuchElementException)
-                {   //Logged in, make sure the user profile picture element presents
-                    Assert.NotNull(driver.FindElement(By.XPath("//img[@role='presentation']")));
+                if (!(ExistsElement(driver, By.Id("passwordError"))))
+                { //no passwordError, Logged in, make sure the user profile picture element presents
+                    Assert.True(ExistsElement(driver, By.XPath("//img[@role='presentation']")));
                 }
             }
+        }
+
+        public static void SignOut(IWebDriver driver)
+        {
+            //Check whether already signed in
+            if (ExistsElement(driver, By.XPath("//img[@role='presentation']")))
+            {   //Click on the picture to flyout menu
+                driver.FindElement(By.XPath("//img[@role='presentation']")).Click();
+                //Click on Sign Out link
+                driver.FindElement(By.XPath("//div[@id='msame_si1']/a")).Click();
+            }
+
+            // already Signed outo, do nothing
         }
 
         public static bool ExistsElement(IWebDriver driver, By by)
@@ -84,3 +85,4 @@ namespace Ddmrp.Framework.Helpers
         }
     }
 }
+

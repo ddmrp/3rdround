@@ -9,28 +9,31 @@ Given I am on the Signin page
 
 @UI @Success
 Scenario Outline: Success Sign In with valid username password
-When I enter valid username <Username> / password <Password>
-Then I should be able to sign in the site
+When I enter username <Username> / password <Password>
+Then I should be able to access the site
 	Examples: 
 	| Username             | Password       |
 	| Ddmrp222@outlook.com | DemandDriven1! |
 
 @UI	@Failed @InvalidUsername
 Scenario Outline: Failed Sign In with invalid username
-When I enter invalid username <Username>
+When I enter username <Username> / password <Password>
 Then I should be denied access to the site
 	Examples: 
-	| Username             | Password     |
-	| ddmrp999@outlook.com | DoesntMatter |
-	| ZZZ99ZZZ@outlook.com | DoesntMatter |
-	| ZZZZZZZZ@gmail.com   | DoesntMatter |
+	| Username              | Password     |
+	| ddmrp9999@outlook.com | DoesntMatter |
+	| ZZZ666ZZZ@outlook.com | DoesntMatter |
+	| ZZZ888ZZZ@gmail.com   | DoesntMatter |
+	| ZZZ999ZZZ@gmail.com   | DoesntMatter |
 
 @UI	@Failed @InvalidPassword
 Scenario Outline: Failed Sign In with invalid password
-When I enter invalid password <password>
+When I enter username <Username> / password <Password>
 Then I should be denied access to the site
 	Examples: 
 	| Username             | Password      |
-	| test@example.com     | WrongPassword |
-	| ZZZZZZZZ@outlook.com | WrongPassword |
-	| ddmrp222@outlook.com | WrongPassword |
+	| test1000@example.com | WrongPassword |
+	| test1001@example.com | WrongPassword |
+	| test1002@example.com | WrongPassword |
+	| test1003@example.com | WrongPassword |
+	| test1004@example.com | WrongPassword |

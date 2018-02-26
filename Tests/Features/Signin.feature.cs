@@ -94,9 +94,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 12
-testRunner.When(string.Format("I enter valid username {0} / password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I enter username {0} / password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
-testRunner.Then("I should be able to sign in the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I should be able to access the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -106,9 +106,10 @@ testRunner.Then("I should be able to sign in the site", ((string)(null)), ((Tech
         [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Failed")]
         [NUnit.Framework.CategoryAttribute("InvalidUsername")]
-        [NUnit.Framework.TestCaseAttribute("ddmrp999@outlook.com", "DoesntMatter", null)]
-        [NUnit.Framework.TestCaseAttribute("ZZZ99ZZZ@outlook.com", "DoesntMatter", null)]
-        [NUnit.Framework.TestCaseAttribute("ZZZZZZZZ@gmail.com", "DoesntMatter", null)]
+        [NUnit.Framework.TestCaseAttribute("ddmrp9999@outlook.com", "DoesntMatter", null)]
+        [NUnit.Framework.TestCaseAttribute("ZZZ666ZZZ@outlook.com", "DoesntMatter", null)]
+        [NUnit.Framework.TestCaseAttribute("ZZZ888ZZZ@gmail.com", "DoesntMatter", null)]
+        [NUnit.Framework.TestCaseAttribute("ZZZ999ZZZ@gmail.com", "DoesntMatter", null)]
         public virtual void FailedSignInWithInvalidUsername(string username, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -125,7 +126,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 20
-testRunner.When(string.Format("I enter invalid username {0}", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I enter username {0} / password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
 testRunner.Then("I should be denied access to the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -137,9 +138,11 @@ testRunner.Then("I should be denied access to the site", ((string)(null)), ((Tec
         [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Failed")]
         [NUnit.Framework.CategoryAttribute("InvalidPassword")]
-        [NUnit.Framework.TestCaseAttribute("test@example.com", "WrongPassword", null)]
-        [NUnit.Framework.TestCaseAttribute("ZZZZZZZZ@outlook.com", "WrongPassword", null)]
-        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "WrongPassword", null)]
+        [NUnit.Framework.TestCaseAttribute("test1000@example.com", "WrongPassword", null)]
+        [NUnit.Framework.TestCaseAttribute("test1001@example.com", "WrongPassword", null)]
+        [NUnit.Framework.TestCaseAttribute("test1002@example.com", "WrongPassword", null)]
+        [NUnit.Framework.TestCaseAttribute("test1003@example.com", "WrongPassword", null)]
+        [NUnit.Framework.TestCaseAttribute("test1004@example.com", "WrongPassword", null)]
         public virtual void FailedSignInWithInvalidPassword(string username, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -151,13 +154,13 @@ testRunner.Then("I should be denied access to the site", ((string)(null)), ((Tec
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failed Sign In with invalid password", @__tags);
-#line 29
+#line 30
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 30
-testRunner.When("I enter invalid password <password>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 31
+testRunner.When(string.Format("I enter username {0} / password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 32
 testRunner.Then("I should be denied access to the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

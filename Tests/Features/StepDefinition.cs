@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Ddmrp.Framework.Controls;
+using Ddmrp.Framework.Enums;
+using Ddmrp.Framework.Helpers;
+using Ddmrp.Framework.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using Ddmrp.Framework.Helpers;
 using System.Threading;
-using Ddmrp.Framework.Controls;
-using Ddmrp.Framework.Enums;
-using Ddmrp.Framework.Pages;
 using TechTalk.SpecFlow;
 
 namespace Ddmrp.FeatureFiles
@@ -31,7 +31,48 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-        #region When 	 
+        #region When 
+        [When(@"I click on a link (.*) from top navigation")]
+        public void WhenIClickOnALinkFromTopNavigation(string link)
+        {
+            switch (link)
+            {
+                case "Logo":
+                    Utils.ClickLink(driver, By.Id(Navigation.Logo));
+                    break;
+                case "Office":
+                    Utils.ClickLink(driver, By.Id(Navigation.Office));
+                    break;
+                case "Windows":
+                    Utils.ClickLink(driver, By.Id(Navigation.Windows));
+                    break;
+                case "Surface":
+                    Utils.ClickLink(driver, By.Id(Navigation.Surface));
+                    break;
+                case "Xbox":
+                    Utils.ClickLink(driver, By.Id(Navigation.Xbox));
+                    break;
+                case "Deals":
+                    Utils.ClickLink(driver, By.Id(Navigation.Deals));
+                    break;
+                case "Support":
+                    Utils.ClickLink(driver, By.Id(Navigation.Support));
+                    break;
+                case "More":
+                    Utils.ClickLink(driver, By.Id(Navigation.More));
+                    break;
+                case "Search":
+                    Utils.ClickLink(driver, By.Id(Navigation.Search));
+                    break;
+                case "Cart":
+                    Utils.ClickLink(driver, By.Id(Navigation.Cart));
+                    break;
+                default:
+                    ;
+                    break;
+            }
+        }
+
         [When(@"I click on a link (.*) from footer")]
         public void WhenIClickOnALinkFromFooter(string link)
         {
@@ -80,7 +121,49 @@ namespace Ddmrp.FeatureFiles
 
         #endregion
 
-        #region Then 	
+        #region Then  
+        [Then(@"correct top navigation web page (.*) should render")]
+        public void ThenCorrectTopNavigationWebPageShouldRender(string link)
+        {
+            switch (link)
+            {
+                case "Logo":
+                    Assert.True(driver.Url.Contains("/en-us/"));
+                    break;
+                case "Office":
+                    Assert.True(driver.Url.Contains("/en-us/home"));
+                    break;
+                case "Windows":
+                    Assert.True(driver.Url.Contains("/windows/"));
+                    break;
+                case "Surface":
+                    Assert.True(driver.Url.Contains("/surface"));
+                    break;
+                case "Xbox":
+                    Assert.True(driver.Url.Contains("/www.xbox.com/"));
+                    break;
+                case "Deals":
+                    Assert.True(driver.Url.Contains("/store/"));
+                    break;
+                case "Support":
+                    Assert.True(driver.Url.Contains("/support.microsoft.com/"));
+                    break;
+                case "More":
+                    Assert.True(Utils.ExistsElement(driver, By.Id("More-navigation")));
+                    break;
+                case "Search":
+                    Assert.True(Utils.ExistsElement(driver, By.Id("cli_shellHeaderSearchInput")));
+                    break;
+                case "Cart":
+                    Thread.Sleep(1000);
+                    Assert.True(driver.Url.Contains("/store/buy/cart"));
+                    break;
+                default:
+                    ;
+                    break;
+            }
+        }
+
         [Then(@"the corresponding web page (.*) should render")]
         public void ThenTheCorrespondingWebPageShouldRender(string link)
         {

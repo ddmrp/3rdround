@@ -9,7 +9,7 @@ namespace Ddmrp.Framework.Enums
             Surface = "shellmenu_2",
             Xbox = "shellmenu_3",
             Deals = "shellmenu_4",
-            Support = "11_support",
+            Support = "l1_support",
             More = "More-navigation",
             Search = "search",
             Cart = "uhf-shopping-cart";

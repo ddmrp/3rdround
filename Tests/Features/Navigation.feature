@@ -1,11 +1,23 @@
-﻿Feature: SpecFlowFeature1
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿@Navigation
+Feature: Navigation
+	In order to access to top level links
+	As a user on the site
+	I want to be able to navigate to various links from top
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@UI @Success
+Scenario Outline: Success top navigation link
+	Given I am on HomePage
+	When I click on a link <Link> from top navigation
+	Then correct top navigation web page <Link> should render
+	Examples:
+	| Section        | Link    |  
+	| Top Navigation | Logo    |
+	| Top Navigation | Office  |
+	| Top Navigation | Windows |
+	| Top Navigation | Surface |
+	| Top Navigation | Xbox    |
+	| Top Navigation | Deals   |
+	| Top Navigation | Support |
+	| Top Navigation | More    |
+	| Top Navigation | Search  |
+	| Top Navigation | Cart    | 

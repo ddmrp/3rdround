@@ -18,8 +18,9 @@ namespace ddmrp.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("SpecFlowFeature1")]
-    public partial class SpecFlowFeature1Feature
+    [NUnit.Framework.DescriptionAttribute("Navigation")]
+    [NUnit.Framework.CategoryAttribute("Navigation")]
+    public partial class NavigationFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,8 +32,9 @@ namespace ddmrp.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlowFeature1", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Navigation", "\tIn order to access to top level links\r\n\tAs a user on the site\r\n\tI want to be abl" +
+                    "e to navigate to various links from top", ProgrammingLanguage.CSharp, new string[] {
+                        "Navigation"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,22 +67,37 @@ namespace ddmrp.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Success top navigation link")]
+        [NUnit.Framework.CategoryAttribute("UI")]
+        [NUnit.Framework.CategoryAttribute("Success")]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Logo", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Office", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Windows", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Surface", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Xbox", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Deals", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Support", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "More", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Search", null)]
+        [NUnit.Framework.TestCaseAttribute("Top Navigation", "Cart", null)]
+        public virtual void SuccessTopNavigationLink(string section, string link, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "UI",
+                    "Success"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success top navigation link", @__tags);
 #line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I am on HomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I click on a link {0} from top navigation", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("correct top navigation web page {0} should render", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -1,11 +1,33 @@
-﻿Feature: Profile
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿@Search
+Feature: Search
+	In order to find out information from the site
+	As a normal user
+	I want to be able to type in search terms into searchbox
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@UI	@Success @SearchBox
+Scenario Outline: Success Search from Searchbox
+	Given I am on HomePage
+	When I search for terms <SearchTerms> in searchbox
+	Then result items relevant to search terms <SearchTerms> should appear
+
+	Examples: 
+	| SearchTerms                             |
+	| Demand Driven Material Requirement Plan |
+	| DDMRP                                   |
+	| Demand Driven                           |
+	| Material Requirement Plan               |
+	| DemandDrivenTech                        |
+
+	@UI	@Success @SearchResults @ShowAll
+Scenario Outline: Success Search Results Show All
+	Given I am on SearchResults page for terms <SearchTerms>
+	When I click on Show All results link
+	Then all result items relevant to search terms <SearchTerms> should appear
+
+	Examples: 
+	| SearchTerms    |
+	| Stephen King   |
+	| Eric Falsken   |
+	| Frank Zhang    |
+	| Michael Durkin |
+	| Herman Xiao    |

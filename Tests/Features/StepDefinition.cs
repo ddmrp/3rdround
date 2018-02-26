@@ -5,6 +5,7 @@ using Ddmrp.Framework.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -18,7 +19,8 @@ namespace Ddmrp.FeatureFiles
         IWebDriver driver;
         #endregion
 
-        #region 	Given 
+        #region Given	
+
         [Given(@"I am signed in to the site with username (.*) password (.*)")]
         public void GivenIAmSignedInToTheSiteWithUsernamePassword(string username, string password)
         {
@@ -27,7 +29,6 @@ namespace Ddmrp.FeatureFiles
                 Utils.SignIn(driver, username, password);
             }
             Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
-
         }
 
         [Given(@"I am on the Signin page")]
@@ -42,7 +43,49 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-        #region 	When 
+        #region When 
+        [When(@"I save updated firstname (.*) lastname (.*)")]
+        public void WhenISaveUpdatedFirstnameLastname(string firstname, string lastname)
+        {   //Check to see whether signed in yet
+            if (!(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']"))))
+            {   //not signed in, sign in
+                Utils.SignIn(driver, "ddmrp222@outlook.com", "DemandDriven1!");
+            }
+            //we are guaranteed signed in 
+            Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
+
+            //Click on the profile picture
+            driver.FindElement(By.XPath("//img[@role='presentation']")).Click();
+            //Click on View Microsoft account link
+            Thread.Sleep(1000);
+            driver.FindElement(By.LinkText("View Microsoft account")).Click();
+
+            Assert.True(driver.Url.StartsWith("https://account.microsoft.com/?ref=MeControl"));
+
+            Thread.Sleep(1000);
+            driver.FindElement(By.Id("basics-module-edit-name")).Click();
+            Assert.True(driver.Url.StartsWith("https://account.microsoft.com/profile/edit-name"));
+
+            var firstName = driver.FindElement(By.Id("edit-name-first"));
+            var lastName = driver.FindElement(By.Id("edit-name-last"));
+            var editSave = driver.FindElement(By.Id("edit-name-save"));
+
+            firstname = firstname + Guid.NewGuid();
+            
+            firstName.Clear();
+            lastName.Clear();
+            firstName.SendKeys(firstname);
+
+            lastName.SendKeys(lastname);
+
+            if (editSave.Enabled)
+            {
+                editSave.Click();
+            }
+
+            Assert.True(driver.Url.StartsWith("https://account.microsoft.com/"));
+        }
+
 
         [When(@"I click on View Microsoft Account link")]
         public void WhenIClickOnViewMicrosoftAccountLink()
@@ -141,7 +184,14 @@ namespace Ddmrp.FeatureFiles
 
         #endregion
 
-        #region 	Then
+        #region 		Then 
+        [Then(@"The new firstname (.*) lastname (.*) should show")]
+        public void ThenTheNewFirstnameLastnameShouldShow(string firstname, string lastname)
+        {
+            Assert.True(driver.Url.StartsWith("https://account.microsoft.com/"));
+            Assert.NotNull(driver.FindElement(By.XPath("//span[text()='Account']")));
+        }
+
 
         [Then(@"I should land on my profile page")]
         public void ThenIShouldLandOnMyProfilePage()

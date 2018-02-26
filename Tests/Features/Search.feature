@@ -18,7 +18,7 @@ Scenario Outline: Success Search from Searchbox
 	| Material Requirement Plan               |
 	| DemandDrivenTech                        |
 
-	@UI	@Success @SearchResults @ShowAll
+@UI	@Success @SearchResults @ShowAll
 Scenario Outline: Success Search Results Show All
 	Given I am on SearchResults page for terms <SearchTerms>
 	When I click on Show All results link

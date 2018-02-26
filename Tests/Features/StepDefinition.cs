@@ -43,7 +43,16 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-        #region When 
+    #region When
+    [When(@"I click on shopping cart link")]
+        public void WhenIClickOnShoppingCartLink()
+        {   //Check to see link exists
+            if(Utils.ExistsElement(driver, By.Id(Navigation.Cart)))
+            {   //Click on it
+                Utils.ClickLink(driver, By.Id(Navigation.Cart));
+            }
+        }
+
         [When(@"I save updated firstname (.*) lastname (.*)")]
         public void WhenISaveUpdatedFirstnameLastname(string firstname, string lastname)
         {   //Check to see whether signed in yet
@@ -184,7 +193,13 @@ namespace Ddmrp.FeatureFiles
 
         #endregion
 
-        #region 		Then 
+        #region Then 
+        [Then(@"I should land on my shopping cart")]
+        public void ThenIShouldLandOnMyShoppingCart()
+        {
+            Assert.True(driver.Url.EndsWith("/store/buy/cart"));
+        }
+
         [Then(@"The new firstname (.*) lastname (.*) should show")]
         public void ThenTheNewFirstnameLastnameShouldShow(string firstname, string lastname)
         {

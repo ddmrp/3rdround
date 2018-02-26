@@ -1,11 +1,28 @@
-﻿Feature: Cart
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿@Cart
+Feature: Cart
+	In order to shop on site
+	As a normal user
+	I want to be able to manage my shopping cart
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@UI	@Success @AddItem
+Scenario: Success Cart add item
+	Given I am in my shopping cart
+	When I click on Add to cart link
+	Then The item should be added to cart
+
+@UI	@Success @RemoveItem
+Scenario: Success Cart remove item
+	Given I am in my shopping cart
+	When I click on Remove item link
+	Then The item should be removed from cart
+
+
+@UI	@Success @Navigation
+Scenario Outline: Success cart accessed
+	Given I am signed in to the site with username <Username> password <Password>
+	When I click on shopping cart link
+	Then I should land on my shopping cart
+
+	Examples: 
+	| Username             | Password       |
+	| Ddmrp222@outlook.com | DemandDriven1! |

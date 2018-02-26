@@ -4,9 +4,9 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.Threading;
 
-namespace ddmrp.Tests
+namespace Ddmrp.Tests
 {
-    class Search
+    class Navigation
     {
         IWebDriver driver;
 
@@ -121,7 +121,7 @@ namespace ddmrp.Tests
         public void SuccessSignInWithValidUsernamePassword()
         {
             //Arrange
-            string username = "ddmrp222@outlook.com";
+            string username = "Ddmrp222@outlook.com";
             string password = "DemandDriven1!";
 
             //Act
@@ -137,7 +137,7 @@ namespace ddmrp.Tests
         {
             //Arrange
             int numberOfExceptions = 0;
-            string username = "ddmrp999@outlook.com";
+            string username = "Ddmrp999@outlook.com";
             string password = "DemandDriven1!";
 
             //Act
@@ -157,7 +157,7 @@ namespace ddmrp.Tests
         {
             //Arrange
             int numberOfExceptions = 0;
-            string username = "ddmrp222@outlook.com";
+            string username = "Ddmrp222@outlook.com";
             string password = "DemandDriven2!";
 
             //Act

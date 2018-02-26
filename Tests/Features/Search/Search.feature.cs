@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ddmrp.Features
+namespace ddmrp.Tests.Features.Search
 {
     using TechTalk.SpecFlow;
     
@@ -71,7 +71,7 @@ namespace ddmrp.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Success Search for information")]
         [NUnit.Framework.CategoryAttribute("Success")]
-        [NUnit.Framework.TestCaseAttribute("DDMRP", "Demand Driven Material Requirement Plan", null)]
+        [NUnit.Framework.TestCaseAttribute("Ddmrp", "Demand Driven Material Requirement Plan", null)]
         [NUnit.Framework.TestCaseAttribute("PersonTy", "Ty Norton", null)]
         [NUnit.Framework.TestCaseAttribute("PersonEric", "Eric Falsken", null)]
         [NUnit.Framework.TestCaseAttribute("PersonFrank", "Frank Zhang", null)]

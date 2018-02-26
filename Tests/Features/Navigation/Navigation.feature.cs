@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ddmrp.Features
+namespace Ddmrp.Tests.Features.Navigation
 {
     using TechTalk.SpecFlow;
     

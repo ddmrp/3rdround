@@ -12,22 +12,23 @@ namespace Ddmrp.Framework.Pages
     public class BasePage
     {
 
-        public string url = "https://www.microsoft.com";
-        public IWebDriver driver;
+        public string Url = "http://www.microsoft.com";
+        public IWebDriver Driver;
 
         public void StartBrowser()
         {
-            driver = new ChromeDriver(@"c:\\3rdPartyTools");
+            Driver = new ChromeDriver(@"c:\\3rdPartyTools");
+            Driver.Navigate().GoToUrl("http://www.microsoft.com");
         }
 
         public void GotoPage()
         {
-             driver.Navigate().GoToUrl(url);
+             Driver.Navigate().GoToUrl(Url);
        }
 
         public void ClickLogo()
         {
-            driver.FindElement(By.Id("uhfLogo")).Click();
+            Driver.FindElement(By.Id("uhfLogo")).Click();
         }
 
       }

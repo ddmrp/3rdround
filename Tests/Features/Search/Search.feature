@@ -12,7 +12,7 @@ Scenario Outline: Success Search for information
 
 	Examples: 
 	| Name          | SearchTerms                             |
-	| DDMRP         | Demand Driven Material Requirement Plan |
+	| Ddmrp         | Demand Driven Material Requirement Plan |
 	| PersonTy      | Ty Norton                               |
 	| PersonEric    | Eric Falsken                            |
 	| PersonFrank   | Frank Zhang                             |

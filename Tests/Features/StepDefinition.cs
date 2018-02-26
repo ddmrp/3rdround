@@ -20,6 +20,23 @@ namespace Ddmrp.FeatureFiles
         #endregion
 
         #region Given	
+        [Given(@"I am in my shopping cart")]
+        public void GivenIAmInMyShoppingCart()
+        {
+            if (!(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']"))))
+            {   //not signed in, sign in
+                Utils.SignIn(driver, "ddmrp222@outlook.com", "DemandDriven1!");
+            }
+            //we are guaranteed signed in 
+            Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
+
+            if (Utils.ExistsElement(driver, By.Id(Navigation.Cart)))
+            {   //Click on it
+                Utils.ClickLink(driver, By.Id(Navigation.Cart));
+            }
+            Thread.Sleep(1000);
+            Assert.True(driver.Url.EndsWith("/store/buy/cart"),driver.Url.ToString());
+        }
 
         [Given(@"I am signed in to the site with username (.*) password (.*)")]
         public void GivenIAmSignedInToTheSiteWithUsernamePassword(string username, string password)
@@ -43,8 +60,26 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-    #region When
-    [When(@"I click on shopping cart link")]
+        #region 	When  
+        [When(@"I click on Remove item link")]
+        public void WhenIClickOnRemoveItemLink()
+        {   //Check to see link exists
+            if (Utils.ExistsElement(driver, By.XPath("//*[text()='Remove']")))
+            {   //Click on it
+                Utils.ClickLink(driver, By.XPath("//*[text()='Remove']"));
+            }
+        }
+
+        [When(@"I click on Add to cart link")]
+        public void WhenIClickOnAddToCartLink()
+        {   //Check to see link exists
+            if (Utils.ExistsElement(driver, By.XPath("//*[text()='Add to cart']")))
+            {   //Click on it
+                Utils.ClickLink(driver, By.XPath("//*[text()='Add to cart']"));
+            }
+        }
+
+        [When(@"I click on shopping cart link")]
         public void WhenIClickOnShoppingCartLink()
         {   //Check to see link exists
             if(Utils.ExistsElement(driver, By.Id(Navigation.Cart)))
@@ -191,9 +226,21 @@ namespace Ddmrp.FeatureFiles
             Utils.SearchFor(driver, searchTerms);
         }
 
-        #endregion
+        #endregion 
 
         #region Then 
+        [Then(@"The item should be removed from cart")]
+        public void ThenTheItemShouldBeRemovedFromCart()
+        {
+            Assert.True(driver.Url.EndsWith("/store/buy/cart"));
+        }
+
+        [Then(@"The item should be added to cart")]
+        public void ThenTheItemShouldBeAddedToCart()
+        {
+            Assert.True(driver.Url.EndsWith("/store/buy/cart"));
+        }
+
         [Then(@"I should land on my shopping cart")]
         public void ThenIShouldLandOnMyShoppingCart()
         {

@@ -1,20 +1,34 @@
-﻿@UI @Search
+﻿@Search
 Feature: Search
 	In order to find out information from the site
 	As a normal user
 	I want to be able to type in search terms into searchbox
 
-	@Success
-Scenario Outline: Success Search for information
+@UI	@Success @SearchBox
+Scenario Outline: Success Search from Searchbox
 	Given I am on HomePage
 	When I search for terms <SearchTerms> in searchbox
 	Then result items relevant to search terms <SearchTerms> should appear
 
 	Examples: 
-	| Name          | SearchTerms                             |
-	| Ddmrp         | Demand Driven Material Requirement Plan |
-	| PersonTy      | Ty Norton                               |
-	| PersonEric    | Eric Falsken                            |
-	| PersonFrank   | Frank Zhang                             |
-	| PersonMichael | Michael Durkin                          |
-	| PersonHerman  | Herman Xiao                             |
+	| SearchTerms                             |
+	| Demand Driven Material Requirement Plan |
+	| Ty Norton                               |
+	| Eric Falsken                            |
+	| Frank Zhang                             |
+	| Michael Durkin                          |
+	| Herman Xiao                             |
+
+	@UI	@Success @SearchResults
+Scenario Outline: Success Search Results Show All
+	Given I am on SearchResults page for terms <SearchTerms>
+	When I click on Show All results link
+	Then all result items relevant to search terms <SearchTerms> should appear
+
+	Examples: 
+	| SearchTerms                             |
+	| Demand Driven Material Requirement Plan |
+	| Eric Falsken                            |
+	| Frank Zhang                             |
+	| Michael Durkin                          |
+	| Herman Xiao                             |

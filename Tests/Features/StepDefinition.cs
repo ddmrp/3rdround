@@ -31,7 +31,41 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-        #region When
+        #region When 	 
+        [When(@"I click on a link (.*) from footer")]
+        public void WhenIClickOnALinkFromFooter(string link)
+        {
+            switch (link)
+            {
+                case "Locale":
+                    Utils.ClickLink(driver, By.Id(Footer.Locale));
+                    break;
+                case "SiteMap":
+                    Utils.ClickLink(driver, By.LinkText(Footer.SiteMap));
+                    break;
+                case "ContactUs":
+                    Utils.ClickLink(driver, By.LinkText(Footer.ContactUs));
+                    break;
+                case "Privacy":
+                    Utils.ClickLink(driver, By.LinkText(Footer.Privacy));
+                    break;
+                case "Terms":
+                    Utils.ClickLink(driver, By.LinkText(Footer.Terms));
+                    break;
+                case "Trademarks":
+                    Utils.ClickLink(driver, By.LinkText(Footer.Trademarks));
+                    break;
+                case "AboutAds":
+                    Utils.ClickLink(driver, By.LinkText(Footer.AboutAds));
+                    break;
+                default:
+                    ;
+                    break;
+            }
+                
+            
+        }
+
         [When(@"I enter username (.*) / password (.*)")]
         public void WhenIEnterUsernamePassword(string username, string password) => Utils.SignIn(driver, username, password);
 
@@ -46,7 +80,39 @@ namespace Ddmrp.FeatureFiles
 
         #endregion
 
-        #region Then
+        #region Then 	
+        [Then(@"the corresponding web page (.*) should render")]
+        public void ThenTheCorrespondingWebPageShouldRender(string link)
+        {
+            switch (link)
+            {
+                case "Locale":
+                    Assert.True(driver.Url.Contains("/locale.aspx"));
+                    break;
+                case "SiteMap":
+                    Assert.True(driver.Url.Contains("/sitemap"));
+                    break;
+                case "ContactUs":
+                    Assert.True(driver.Url.Contains("/contactus/"));
+                    break;
+                case "Privacy":
+                    Assert.True(driver.Url.Contains("/privacystatement"));
+                    break;
+                case "Terms":
+                    Assert.True(driver.Url.Contains("/legal/intellectualproperty/copyright/"));
+                    break;
+                case "Trademarks":
+                    Assert.True(driver.Url.Contains("/legal/intellectualproperty/trademarks/"));
+                    break;
+                case "AboutAds":
+                    Assert.True(driver.Url.Contains("/privacy/ad-settings/"));
+                    break;
+                default:
+                    ;
+                    break;
+            }
+        }
+
         [Then(@"I should be denied access to the site")]
         public void ThenIShouldBeDeniedAccessToTheSite()
         {
@@ -57,7 +123,7 @@ namespace Ddmrp.FeatureFiles
         [Then(@"I should be able to access the site")]
         public void ThenIShouldBeAbleToAccessTheSite()
         {
-            Assert.False(driver.Url.StartsWith("https://login.live.com/login.srf?"));
+            Assert.False(driver.Url.StartsWith("https://login.live.com/"));
             Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
         }
 

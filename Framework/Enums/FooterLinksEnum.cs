@@ -5,12 +5,12 @@ namespace Ddmrp.Framework.Enums
     {
         public const string
             Locale      = "locale-picker-link",
-            Sitemap     = "sitemap",
-            ContactUs   = "contact us",
-            Privacy     = "privacy & cookies",
-            TermsOfUse  = "Terms of use",
+            SiteMap     = "Sitemap",
+            ContactUs   = "Contact us",
+            Privacy     = "Privacy & cookies",
+            Terms       = "Terms of use",
             Trademarks  = "Trademarks",
-            AboutAds    = "about our ads",
+            AboutAds    = "About our ads",
             Copyright   = "@ Microsoft 2018";
     }
 }

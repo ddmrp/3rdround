@@ -18,8 +18,9 @@ namespace ddmrp.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("BottomFooter")]
-    public partial class BottomFooterFeature
+    [NUnit.Framework.DescriptionAttribute("Footer")]
+    [NUnit.Framework.CategoryAttribute("Footer")]
+    public partial class FooterFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,8 +32,9 @@ namespace ddmrp.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BottomFooter", "\tIn order to navigate to other links from the footer\r\n\tAs a user on the site\r\n\tI " +
-                    "want to be able to navigate to various links from the footer", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Footer", "\tIn order to navigate to other links from the footer\r\n\tAs a user on the site\r\n\tI " +
+                    "want to be able to navigate to various links from the footer", ProgrammingLanguage.CSharp, new string[] {
+                        "Footer"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,35 +67,34 @@ namespace ddmrp.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
+        [NUnit.Framework.DescriptionAttribute("Success footer link")]
         [NUnit.Framework.CategoryAttribute("UI")]
-        [NUnit.Framework.CategoryAttribute("Footer")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.CategoryAttribute("Success")]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Locale", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "SiteMap", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "ContactUs", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Privacy", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Terms", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Trademarks", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "AboutAds", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        public virtual void SuccessFooterLink(string section, string link, string url, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "UI",
-                        "Footer"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "UI",
+                    "Success"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success footer link", @__tags);
 #line 8
- testRunner.Given("I am on the homepage of the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.When("I click on a link on the footer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Section",
-                        "Link",
-                        "Url"});
-            table1.AddRow(new string[] {
-                        "What\'s New",
-                        "Surface Book 2",
-                        "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview"});
-            table1.AddRow(new string[] {
-                        "Store & Support",
-                        "Account Profile",
-                        "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview"});
+ testRunner.Given("I am on HomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.Then("the corresponding web page should render", ((string)(null)), table1, "Then ");
+ testRunner.When(string.Format("I click on a link {0} from footer", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.Then(string.Format("the corresponding web page {0} should render", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

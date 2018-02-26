@@ -1,33 +1,29 @@
-﻿@Search
-Feature: Search
-	In order to find out information from the site
+﻿@Profile
+Feature: Profile
+	In order to maintain personal information
 	As a normal user
-	I want to be able to type in search terms into searchbox
+	I want to be able to manage my account information
 
-@UI	@Success @SearchBox
-Scenario Outline: Success Search from Searchbox
-	Given I am on HomePage
-	When I search for terms <SearchTerms> in searchbox
-	Then result items relevant to search terms <SearchTerms> should appear
+@UI	@Success @Navigation
+Scenario Outline: Success Profile page accessed after signin in
+	Given I am signed in to the site with username <Username> password <Password>
+	When I click on View Microsoft Account link
+	Then I should land on my profile page
+	Examples: 
+	| Username             | Password       |
+	| Ddmrp222@outlook.com | DemandDriven1! |
+
+
+@UI	@Success @UpdateNames
+Scenario Outline: Success Profile update names
+	Given I am on my profile page
+	When I save my updated firstname <FirstName> lastname <LastName>
+	Then The updated names should show
 
 	Examples: 
-	| SearchTerms                             |
-	| Demand Driven Material Requirement Plan |
-	| DDMRP                                   |
-	| Demand Driven                           |
-	| Material Requirement Plan               |
-	| DemandDrivenTech                        |
-
-	@UI	@Success @SearchResults @ShowAll
-Scenario Outline: Success Search Results Show All
-	Given I am on SearchResults page for terms <SearchTerms>
-	When I click on Show All results link
-	Then all result items relevant to search terms <SearchTerms> should appear
-
-	Examples: 
-	| SearchTerms    |
-	| Stephen King   |
-	| Eric Falsken   |
-	| Frank Zhang    |
-	| Michael Durkin |
-	| Herman Xiao    |
+	| FirstName | LastName |
+	| Ty        | Norton   |
+	| Eric      | Falsken  |
+	| Frank     | Zhang    |
+	| Michael   | Durkin   |
+	| Herman    | Xiao     |

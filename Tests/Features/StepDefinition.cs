@@ -18,7 +18,18 @@ namespace Ddmrp.FeatureFiles
         IWebDriver driver;
         #endregion
 
-        #region Given
+        #region 	Given 
+        [Given(@"I am signed in to the site with username (.*) password (.*)")]
+        public void GivenIAmSignedInToTheSiteWithUsernamePassword(string username, string password)
+        {
+            if (!(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']"))))
+            {
+                Utils.SignIn(driver, username, password);
+            }
+            Assert.True(Utils.ExistsElement(driver, By.XPath("//img[@role='presentation']")));
+
+        }
+
         [Given(@"I am on the Signin page")]
         public void GivenIAmOnTheSigninPage() => driver.FindElement(By.XPath("//div[contains(., 'Sign in')]"));
 
@@ -31,7 +42,16 @@ namespace Ddmrp.FeatureFiles
         }
         #endregion
 
-        #region When 
+        #region 	When 
+
+        [When(@"I click on View Microsoft Account link")]
+        public void WhenIClickOnViewMicrosoftAccountLink()
+        {
+            driver.FindElement(By.XPath("//img[@role='presentation']")).Click();
+            driver.FindElement(By.LinkText("View Microsoft account")).Click();
+
+        }
+
         [When(@"I click on a link (.*) from top navigation")]
         public void WhenIClickOnALinkFromTopNavigation(string link)
         {
@@ -121,7 +141,14 @@ namespace Ddmrp.FeatureFiles
 
         #endregion
 
-        #region Then  
+        #region 	Then
+
+        [Then(@"I should land on my profile page")]
+        public void ThenIShouldLandOnMyProfilePage()
+        {
+            Assert.True(driver.Url.StartsWith("https://account.microsoft.com/?ref=MeControl"));
+        }
+
         [Then(@"correct top navigation web page (.*) should render")]
         public void ThenCorrectTopNavigationWebPageShouldRender(string link)
         {

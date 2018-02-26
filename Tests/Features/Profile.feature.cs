@@ -19,6 +19,7 @@ namespace ddmrp.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Profile")]
+    [NUnit.Framework.CategoryAttribute("Profile")]
     public partial class ProfileFeature
     {
         
@@ -31,8 +32,9 @@ namespace ddmrp.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Profile", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Profile", "\tIn order to maintain personal information\r\n\tAs a normal user\r\n\tI want to be able" +
+                    " to manage my account information", ProgrammingLanguage.CSharp, new string[] {
+                        "Profile"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,22 +67,63 @@ namespace ddmrp.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Success Profile page accessed after signin in")]
+        [NUnit.Framework.CategoryAttribute("UI")]
+        [NUnit.Framework.CategoryAttribute("Success")]
+        [NUnit.Framework.CategoryAttribute("Navigation")]
+        [NUnit.Framework.TestCaseAttribute("Ddmrp222@outlook.com", "DemandDriven1!", null)]
+        public virtual void SuccessProfilePageAccessedAfterSigninIn(string username, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "UI",
+                    "Success",
+                    "Navigation"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success Profile page accessed after signin in", @__tags);
 #line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given(string.Format("I am signed in to the site with username {0} password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on View Microsoft Account link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should land on my profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Success Profile update names")]
+        [NUnit.Framework.CategoryAttribute("UI")]
+        [NUnit.Framework.CategoryAttribute("Success")]
+        [NUnit.Framework.CategoryAttribute("UpdateNames")]
+        [NUnit.Framework.TestCaseAttribute("Ty", "Norton", null)]
+        [NUnit.Framework.TestCaseAttribute("Eric", "Falsken", null)]
+        [NUnit.Framework.TestCaseAttribute("Frank", "Zhang", null)]
+        [NUnit.Framework.TestCaseAttribute("Michael", "Durkin", null)]
+        [NUnit.Framework.TestCaseAttribute("Herman", "Xiao", null)]
+        public virtual void SuccessProfileUpdateNames(string firstName, string lastName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "UI",
+                    "Success",
+                    "UpdateNames"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success Profile update names", @__tags);
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+ testRunner.Given("I am on my profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.When(string.Format("I save my updated firstname {0} lastname {1}", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then("The updated names should show", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

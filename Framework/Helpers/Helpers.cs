@@ -42,7 +42,6 @@ namespace Ddmrp.Framework.Helpers
             driver.FindElement(By.Id("idSIButton9")).Click();
             Thread.Sleep(1000);
 
-
             if (!(ExistsElement(driver, By.Id("usernameError"))))
             { //no usernameError
                 driver.FindElement(By.XPath("//input[@type='password']")).SendKeys(password);

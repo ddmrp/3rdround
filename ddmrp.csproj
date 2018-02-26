@@ -64,32 +64,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests\Features\Cart\Cart.feature.cs">
+    <Compile Include="Tests\Features\Cart.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Cart.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\Footer\Footer.feature.cs">
+    <Compile Include="Tests\Features\Footer.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Footer.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\Profile\Profile.feature.cs">
+    <Compile Include="Tests\Features\Profile.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Profile.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\Search\Search.feature.cs">
+    <Compile Include="Tests\Features\Search.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\Navigation\Navigation.feature.cs">
+    <Compile Include="Tests\Features\Navigation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Navigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\Signin\Signin.feature.cs">
+    <Compile Include="Tests\Features\Signin.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Signin.feature</DependentUpon>
@@ -103,45 +103,45 @@
     <Compile Include="Framework\Enums\NavigationLinksEnum.cs" />
     <Compile Include="Framework\Pages\BasePage.cs" />
     <Compile Include="Framework\Pages\HomePage.cs" />
-    <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\Features\Cart\cart.cs" />
     <Compile Include="Tests\Features\Footer\footer.cs" />
     <Compile Include="Tests\Features\Navigation\navigation.cs" />
     <Compile Include="Tests\Features\Profile\profile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\Features\Search\search.cs" />
     <Compile Include="Tests\Features\Signin\signin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Tests\Features\Cart\Cart.feature">
+    <None Include="Tests\Features\Cart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Cart.feature.cs</LastGenOutput>
     </None>
-    <None Include="Tests\Features\Footer\Footer.feature">
+    <None Include="Tests\Features\Footer.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Footer.feature.cs</LastGenOutput>
     </None>
-    <None Include="Tests\Features\Profile\Profile.feature">
+    <None Include="Tests\Features\Profile.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Profile.feature.cs</LastGenOutput>
     </None>
-    <None Include="Tests\Features\Search\Search.feature">
+    <None Include="Tests\Features\Search.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Search.feature.cs</LastGenOutput>
     </None>
-    <None Include="Tests\Features\Navigation\Navigation.feature">
+    <None Include="Tests\Features\Navigation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Navigation.feature.cs</LastGenOutput>
     </None>
-    <None Include="Tests\Features\Signin\Signin.feature">
+    <None Include="Tests\Features\Signin.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Signin.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tests\Features\Search\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

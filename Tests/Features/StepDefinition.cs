@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using Ddmrp.Framework.Helpers;
 using System.Threading;
 using Ddmrp.Framework.Controls;
+using Ddmrp.Framework.Enums;
 using Ddmrp.Framework.Pages;
 using TechTalk.SpecFlow;
 
@@ -18,6 +19,9 @@ namespace Ddmrp.FeatureFiles
         #endregion
 
         #region Given
+        [Given("I am on the Signin page")]
+        public void GivenIAmOnTheSigninPage() => driver.FindElement(By.XPath("//div[contains(., 'Sign in')]"));
+
         [Given("I am on SearchResults page for terms (.*)")]
         public void GivenIAmOnSearchResultsPageForTerms(string searchTerms) => Utils.SearchFor(driver, searchTerms);
 

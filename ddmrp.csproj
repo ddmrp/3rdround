@@ -94,7 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Signin.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Features\SearchStepDefinition.cs" />
+    <Compile Include="Tests\Features\StepDefinition.cs" />
     <Compile Include="Framework\Controls\NavigationControl.cs" />
     <Compile Include="Framework\Controls\FooterControl.cs" />
     <Compile Include="Framework\Controls\BaseControl.cs" />

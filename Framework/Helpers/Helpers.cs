@@ -16,6 +16,7 @@ namespace Ddmrp.Framework.Helpers
             //Click on Magnifier to expand searchbox
             driver.FindElement(By.Id("search")).Click();
             //Type in search terms
+            driver.FindElement(By.Id("cli_shellHeaderSearchInput")).Clear();
             driver.FindElement(By.Id("cli_shellHeaderSearchInput")).SendKeys(searchTerm);
             //Click on Magnifier to execute search
             driver.FindElement(By.Id("search")).Click();

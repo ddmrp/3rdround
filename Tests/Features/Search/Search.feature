@@ -13,22 +13,22 @@ Scenario Outline: Success Search from Searchbox
 	Examples: 
 	| SearchTerms                             |
 	| Demand Driven Material Requirement Plan |
-	| Ty Norton                               |
-	| Eric Falsken                            |
-	| Frank Zhang                             |
-	| Michael Durkin                          |
-	| Herman Xiao                             |
+	| DDMRP                                   |
+	| Demand Driven                           |
+	| Material Requirement Plan               |
+	| MRP                                     |
+	| DemandDrivenTech                        |
 
-	@UI	@Success @SearchResults
+	@UI	@Success @SearchResults @ShowAll
 Scenario Outline: Success Search Results Show All
 	Given I am on SearchResults page for terms <SearchTerms>
 	When I click on Show All results link
 	Then all result items relevant to search terms <SearchTerms> should appear
 
 	Examples: 
-	| SearchTerms                             |
-	| Demand Driven Material Requirement Plan |
-	| Eric Falsken                            |
-	| Frank Zhang                             |
-	| Michael Durkin                          |
-	| Herman Xiao                             |
+	| SearchTerms    |
+	| Stephen King   |
+	| Eric Falsken   |
+	| Frank Zhang    |
+	| Michael Durkin |
+	| Herman Xiao    |

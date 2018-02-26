@@ -19,10 +19,7 @@ namespace Ddmrp.FeatureFiles
 
         #region Given
         [Given("I am on SearchResults page for terms (.*)")]
-        public void GivenIAmOnSearchResultsPageForTerms(string searchTerms)
-        {
-            Utils.SearchFor(driver, searchTerms);
-        }
+        public void GivenIAmOnSearchResultsPageForTerms(string searchTerms) => Utils.SearchFor(driver, searchTerms);
 
         [Given("I am on HomePage")]
         public void GivenIAmOnHomePage()
@@ -33,7 +30,7 @@ namespace Ddmrp.FeatureFiles
         [When(@"I click on Show All results link")]
         public void WhenIClickOnShowAllResultsLink()
         {
-            Utils.ClickLink(driver, By.XPath("//a[@class='f-show-all']"));
+            Utils.ClickLink(driver, By.XPath("//a[starts-with(@href,'https://www.microsoft.com/en-us/store/search')]"));
         }
 
         [When(@"I search for terms (.*) in searchbox")]
@@ -43,13 +40,24 @@ namespace Ddmrp.FeatureFiles
         }
 
         #endregion
+
         #region Then
+
+
+        [Then("all result items relevant to search terms (.*) should appear")]
+        public void ThenAllResultItemsRelevantToSearchTermsShouldAppear(string searchTerms)
+        {
+            Assert.True(driver.Url.ToLowerInvariant().Contains("/store/search/"));
+            Assert.IsNotNull(driver.FindElement(By.Id("typeRefineMenu")));
+        }
+
         [Then("result items relevant to search terms (.*) should appear")]
         public void ThenResultItemsRelevantToSearchTermsShouldAppear(string searchTerms)
         {
             Assert.True(driver.Url.ToLowerInvariant().Contains("result.aspx"));
             Assert.IsNotNull(driver.FindElement(By.XPath("//div[@data-grid='container']")));
         }
+
         #endregion
 
         #region Test Setup and Tear down
@@ -77,6 +85,8 @@ namespace Ddmrp.FeatureFiles
         public static void AfterFeature(FeatureContext featureContext)
         {
             IWebDriver driver = (IWebDriver)featureContext["driver"];
+
+            Thread.Sleep(10000);
             driver.Close();
         }
         #endregion

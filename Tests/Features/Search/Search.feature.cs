@@ -72,11 +72,11 @@ namespace ddmrp.Tests.Features.Search
         [NUnit.Framework.CategoryAttribute("Success")]
         [NUnit.Framework.CategoryAttribute("SearchBox")]
         [NUnit.Framework.TestCaseAttribute("Demand Driven Material Requirement Plan", null)]
-        [NUnit.Framework.TestCaseAttribute("Ty Norton", null)]
-        [NUnit.Framework.TestCaseAttribute("Eric Falsken", null)]
-        [NUnit.Framework.TestCaseAttribute("Frank Zhang", null)]
-        [NUnit.Framework.TestCaseAttribute("Michael Durkin", null)]
-        [NUnit.Framework.TestCaseAttribute("Herman Xiao", null)]
+        [NUnit.Framework.TestCaseAttribute("DDMRP", null)]
+        [NUnit.Framework.TestCaseAttribute("Demand Driven", null)]
+        [NUnit.Framework.TestCaseAttribute("Material Requirement Plan", null)]
+        [NUnit.Framework.TestCaseAttribute("MRP", null)]
+        [NUnit.Framework.TestCaseAttribute("DemandDrivenTech", null)]
         public virtual void SuccessSearchFromSearchbox(string searchTerms, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -105,7 +105,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Success")]
         [NUnit.Framework.CategoryAttribute("SearchResults")]
-        [NUnit.Framework.TestCaseAttribute("Demand Driven Material Requirement Plan", null)]
+        [NUnit.Framework.CategoryAttribute("ShowAll")]
+        [NUnit.Framework.TestCaseAttribute("Stephen King", null)]
         [NUnit.Framework.TestCaseAttribute("Eric Falsken", null)]
         [NUnit.Framework.TestCaseAttribute("Frank Zhang", null)]
         [NUnit.Framework.TestCaseAttribute("Michael Durkin", null)]
@@ -115,7 +116,8 @@ this.ScenarioSetup(scenarioInfo);
             string[] @__tags = new string[] {
                     "UI",
                     "Success",
-                    "SearchResults"};
+                    "SearchResults",
+                    "ShowAll"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

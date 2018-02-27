@@ -1,32 +1,23 @@
 ﻿//HomePageObject.cs
-using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+using Ddmrp.Framework.Enums;
+using Ddmrp.Framework.Helpers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Chrome;
 
 namespace Ddmrp.Framework.Controls
 {
-    public class FooterControl:BaseControl
+    public static class FooterControl
     {
-        public void OpenPage(string homepage, IWebDriver driver)
+        public static void ClickLocale(IWebDriver driver)
         {
-            //driver.Navigate().GoToUrl("http://google.co.uk");
-            driver.Navigate().GoToUrl(homepage);
-            //Console.WriteLine(homepage);
-            // driver.Navigate();
+            Utils.ClickLink(driver, By.Id(Footer.Locale));
         }
-         public void ClickSearch(IWebDriver driver)
-        {
-            //Selenese goes here
-            driver.FindElement(By.Id("gbqfba")).Click();
-        }
-        public void clickFeelingLucky(IWebDriver driver)
-        {
-            //Selenese
-            driver.FindElement(By.Id("gbqfbb")).Click();
-        }
+
+        public static void ClickSitemap(IWebDriver driver) => Utils.ClickLink(driver, By.XPath("//a[@ms.title='" + Footer.SiteMap + "']"));
+        public static void ClickContactus(IWebDriver driver) => Utils.ClickLink(driver, By.XPath("//a[@ms.title='" + Footer.ContactUs + "']"));
+        public static void ClickPrivacy(IWebDriver driver) => Utils.ClickLink(driver, By.XPath("//a[@ms.title='" + Footer.Privacy + "']"));
+        public static void ClickTermsofuse(IWebDriver driver) => Utils.ClickLink(driver, By.XPath("//a[@ms.title='" + Footer.Terms + "']"));
+        public static void ClickTrademarks(IWebDriver driver) => Utils.ClickLink(driver, By.XPath("//a[@ms.title='" + Footer.Trademarks + "']"));
+        public static void ClickAboutads(IWebDriver driver) => Utils.ClickLink(driver, By.LinkText(Footer.Copyright));
+
     }
 }

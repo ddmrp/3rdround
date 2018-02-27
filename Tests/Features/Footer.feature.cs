@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ddmrp.Features
+namespace ddmrp.Tests.Features
 {
     using TechTalk.SpecFlow;
     
@@ -18,25 +18,23 @@ namespace ddmrp.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Search")]
-    [NUnit.Framework.CategoryAttribute("UI")]
-    [NUnit.Framework.CategoryAttribute("Search")]
-    public partial class SearchFeature
+    [NUnit.Framework.DescriptionAttribute("Footer")]
+    [NUnit.Framework.CategoryAttribute("Footer")]
+    public partial class FooterFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Search.feature"
+#line 1 "Footer.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search", "\tIn order to find out information from the site\r\n\tAs a normal user\r\n\tI want to be" +
-                    " able to type in search terms into searchbox", ProgrammingLanguage.CSharp, new string[] {
-                        "UI",
-                        "Search"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Footer", "\tIn order to navigate to other links from the footer\r\n\tAs a user on the site\r\n\tI " +
+                    "want to be able to navigate to various links from the footer", ProgrammingLanguage.CSharp, new string[] {
+                        "Footer"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -69,31 +67,34 @@ namespace ddmrp.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Success Search for information")]
+        [NUnit.Framework.DescriptionAttribute("Success footer link")]
+        [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Success")]
-        [NUnit.Framework.TestCaseAttribute("DDMRP", "Demand Driven Material Requirement Plan", null)]
-        [NUnit.Framework.TestCaseAttribute("PersonTy", "Ty Norton", null)]
-        [NUnit.Framework.TestCaseAttribute("PersonEric", "Eric Falsken", null)]
-        [NUnit.Framework.TestCaseAttribute("PersonFrank", "Frank Zhang", null)]
-        [NUnit.Framework.TestCaseAttribute("PersonMichael", "Michael Durkin", null)]
-        [NUnit.Framework.TestCaseAttribute("PersonHerman", "Herman Xiao", null)]
-        public virtual void SuccessSearchForInformation(string name, string searchTerms, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Locale", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "SiteMap", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "ContactUs", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Privacy", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Terms", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Trademarks", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "AboutAds", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
+        public virtual void SuccessFooterLink(string section, string link, string url, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "UI",
                     "Success"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success Search for information", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success footer link", @__tags);
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.Given("I am on HomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When(string.Format("I search for terms {0} in searchbox", searchTerms), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I click on a link {0} from footer", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then(string.Format("result items relevant to search terms {0} should appear", searchTerms), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the corresponding web page {0} should render", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

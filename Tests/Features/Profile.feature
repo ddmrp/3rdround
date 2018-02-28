@@ -12,11 +12,8 @@ Scenario Outline: Success Profile update names
 
 	Examples: 
 	| Username             | Password       | Firstname | Lastname |
-	| ddmrp222@outlook.com | DemandDriven1! | Ty        | Norton   |
 	| ddmrp222@outlook.com | DemandDriven1! | Eric      | Falsken  |
-	| ddmrp222@outlook.com | DemandDriven1! | Frank     | Zhang    |
-	| ddmrp222@outlook.com | DemandDriven1! | Michael   | Durkin   |
-	| ddmrp222@outlook.com | DemandDriven1! | Herman    | Xiao     |
+	| ddmrp222@outlook.com | DemandDriven1! | Demand    | Driven   |
 
 
 @UI	@Success @Navigation

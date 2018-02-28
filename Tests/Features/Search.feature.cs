@@ -73,8 +73,6 @@ namespace ddmrp.Tests.Features
         [NUnit.Framework.CategoryAttribute("SearchBox")]
         [NUnit.Framework.TestCaseAttribute("Demand Driven Material Requirement Plan", null)]
         [NUnit.Framework.TestCaseAttribute("DDMRP", null)]
-        [NUnit.Framework.TestCaseAttribute("Demand Driven", null)]
-        [NUnit.Framework.TestCaseAttribute("Material Requirement Plan", null)]
         [NUnit.Framework.TestCaseAttribute("DemandDrivenTech", null)]
         public virtual void SuccessSearchFromSearchbox(string searchTerms, string[] exampleTags)
         {
@@ -122,13 +120,13 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success Search Results Show All", @__tags);
-#line 22
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 23
+#line 21
  testRunner.Given(string.Format("I am on SearchResults page for terms {0}", searchTerms), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 24
+#line 22
  testRunner.When("I click on Show All results link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
+#line 23
  testRunner.Then(string.Format("all result items relevant to search terms {0} should appear", searchTerms), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

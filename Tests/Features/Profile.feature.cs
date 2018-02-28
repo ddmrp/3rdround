@@ -71,11 +71,8 @@ namespace ddmrp.Tests.Features
         [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Success")]
         [NUnit.Framework.CategoryAttribute("UpdateNames")]
-        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Ty", "Norton", null)]
         [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Eric", "Falsken", null)]
-        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Frank", "Zhang", null)]
-        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Michael", "Durkin", null)]
-        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Herman", "Xiao", null)]
+        [NUnit.Framework.TestCaseAttribute("ddmrp222@outlook.com", "DemandDriven1!", "Demand", "Driven", null)]
         public virtual void SuccessProfileUpdateNames(string username, string password, string firstname, string lastname, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -114,13 +111,13 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Success Profile page accessed", @__tags);
-#line 23
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 21
  testRunner.Given(string.Format("I am signed in to the site with username {0} password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
+#line 22
  testRunner.When("I click on View Microsoft Account link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 26
+#line 23
  testRunner.Then("I should land on my profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

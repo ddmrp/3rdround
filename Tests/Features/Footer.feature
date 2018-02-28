@@ -10,11 +10,16 @@ Scenario Outline: Success footer link
 	When I click on a link <Link> from footer
 	Then the corresponding web page <Link> should render
 	Examples:
-	| Section       | Link       | Url                                                                     |
-	| Bottom Footer | Locale     | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | SiteMap    | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | ContactUs  | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | Privacy    | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | Terms      | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | Trademarks | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
-	| Bottom Footer | AboutAds   | https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview |
+	| Section         | Link                    | 
+	| Bottom Footer   | Locale                  |
+	| Bottom Footer   | SiteMap                 |
+	| Bottom Footer   | ContactUs               |
+	| Bottom Footer   | Privacy                 |
+	| Bottom Footer   | Terms                   |
+	| Bottom Footer   | Trademarks              |
+	| What's new      | AboutAds                |
+	| Store & Support | Account profile         |
+	| Education       | Microsoft in education  |
+	| Enterprise      | Microsoft Azure         |
+	| Developer       | Microsoft Visual Studio |
+	| Company         | Careers                 |

@@ -74,6 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Footer.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\Navigation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Navigation.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Features\Profile.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,11 +88,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Tests\Features\Navigation.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Navigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Tests\Features\Signin.feature.cs">
       <AutoGen>True</AutoGen>

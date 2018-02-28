@@ -14,8 +14,6 @@ Scenario Outline: Success Search from Searchbox
 	| SearchTerms                             |
 	| Demand Driven Material Requirement Plan |
 	| DDMRP                                   |
-	| Demand Driven                           |
-	| Material Requirement Plan               |
 	| DemandDrivenTech                        |
 
 @UI	@Success @SearchResults @ShowAll

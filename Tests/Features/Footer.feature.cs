@@ -70,14 +70,19 @@ namespace ddmrp.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Success footer link")]
         [NUnit.Framework.CategoryAttribute("UI")]
         [NUnit.Framework.CategoryAttribute("Success")]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Locale", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "SiteMap", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "ContactUs", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Privacy", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Terms", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Trademarks", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "AboutAds", "https://www.microsoft.com/en-us/surface/devices/surface-book-2/overview", null)]
-        public virtual void SuccessFooterLink(string section, string link, string url, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Locale", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "SiteMap", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "ContactUs", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Privacy", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Terms", null)]
+        [NUnit.Framework.TestCaseAttribute("Bottom Footer", "Trademarks", null)]
+        [NUnit.Framework.TestCaseAttribute("What\'s new", "AboutAds", null)]
+        [NUnit.Framework.TestCaseAttribute("Store & Support", "Account profile", null)]
+        [NUnit.Framework.TestCaseAttribute("Education", "Microsoft in education", null)]
+        [NUnit.Framework.TestCaseAttribute("Enterprise", "Microsoft Azure", null)]
+        [NUnit.Framework.TestCaseAttribute("Developer", "Microsoft Visual Studio", null)]
+        [NUnit.Framework.TestCaseAttribute("Company", "Careers", null)]
+        public virtual void SuccessFooterLink(string section, string link, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "UI",

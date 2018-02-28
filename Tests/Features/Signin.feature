@@ -21,10 +21,10 @@ When I enter username <Username> / password <Password>
 Then I should be denied access to the site
 	Examples: 
 	| Username              | Password     |
-	| ddmrp9999@outlook.com | DoesntMatter |
-	| ZZZ666ZZZ@outlook.com | DoesntMatter |
-	| ZZZ888ZZZ@gmail.com   | DoesntMatter |
+	| ddmrp9999@gmail.com   | DoesntMatter |
 	| ZZZ999ZZZ@gmail.com   | DoesntMatter |
+	| ddmrp9999@outlook.com | DoesntMatter |
+	| ZZZ999ZZZ@outlook.com | DoesntMatter |
 
 @UI	@Failed @InvalidPassword
 Scenario Outline: Failed Sign In with invalid password

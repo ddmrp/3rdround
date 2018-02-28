@@ -12,7 +12,7 @@ namespace Ddmrp.Framework.Controls
             Utils.ClickLink(driver, By.Id(Navigation.Office));
         }
 
-        public static void ClickWindows(IWebDriver driver)
+        public                                                                                                                                                                                static void ClickWindows(IWebDriver driver)
         {
             Utils.ClickLink(driver, By.Id(Navigation.Windows));
         }
